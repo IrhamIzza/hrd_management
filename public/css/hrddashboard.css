@@ -1,0 +1,118 @@
+/* GLOBAL STYLING */
+body, .dashboard-bg {
+    background: #eefbff;
+    font-family: 'Segoe UI', sans-serif;
+    color: #2c3e50;
+}
+
+h2, h6, .card-header {
+    color: #005daf;
+}
+
+/* STAT CARDS */
+.card {
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card .card-body {
+    padding: 1.2rem 1.5rem;
+}
+
+.card .text-xs {
+    font-size: 0.8rem;
+    color: #005daf;
+    font-weight: 600;
+}
+
+.card .h5, .card .h6, .card .font-weight-bold {
+    color: #004080;
+}
+
+/* BORDER COLORS REPLACEMENT (CUSTOM THEME) */
+.border-left-primary {
+    border-left: 0.25rem solid #005daf !important;
+}
+.border-left-warning {
+    border-left: 0.25rem solid #f9a825 !important;
+}
+.border-left-success {
+    border-left: 0.25rem solid #43a047 !important;
+}
+.border-left-info {
+    border-left: 0.25rem solid #0288d1 !important;
+}
+
+/* TABLE */
+.table thead th {
+    background-color: #005daf;
+    color: white;
+    border: none;
+}
+
+.table tbody tr td {
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background-color: #f0f9ff;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background-color: #005daf;
+    border: none;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #004080;
+}
+
+/* CHART + MOTIVATION BOX */
+.card-section {
+    background: white;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 16px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    background-color: #e7f5ff !important;
+    color: #005daf;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 18px 18px 0 0;
+}
+
+#motivation-box {
+    background: linear-gradient(135deg, #005daf, #0099dd);
+    color: white;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* RESPONSIVE TWEAKS */
+@media (max-width: 768px) {
+    .card .card-body {
+        padding: 1rem;
+    }
+
+    .card-header {
+        font-size: 1rem;
+    }
+
+    .btn-sm {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.875rem;
+    }
+}

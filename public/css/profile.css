@@ -1,0 +1,75 @@
+body {
+    background-color: #CAF4FF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 93, 175, 0.2);
+    background-color: #fff;
+}
+
+.card-header {
+    background-color: #005daf !important;
+    color: white !important;
+    border-radius: 10px 10px 0 0;
+    padding: 1rem 1.25rem;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.form-group label {
+    color: #005daf;
+    font-weight: 600;
+}
+
+input.form-control,
+textarea.form-control {
+    border: 1px solid #005daf;
+    border-radius: 5px;
+    padding: 0.5rem;
+    transition: border-color 0.3s;
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+    border-color: #005daf;
+    box-shadow: 0 0 5px rgba(0, 93, 175, 0.3);
+}
+
+input[type="file"].form-control {
+    padding: 0.3rem;
+    border: 1px dashed #005daf;
+    background-color: #f0faff;
+}
+
+button.btn-success {
+    background-color: #005daf;
+    border-color: #005daf;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+button.btn-success:hover {
+    background-color: #004080;
+    border-color: #004080;
+}
+
+.alert-success {
+    background-color: #d4f1ff;
+    border-color: #bde6ff;
+    color: #005daf;
+}
+
+.bg-secondary {
+    background-color: #CAF4FF !important;
+}
+
+.fas.fa-user {
+    color: #005daf !important;
+}

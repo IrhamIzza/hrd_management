@@ -1,0 +1,74 @@
+/* dashboard.css */
+
+body {
+    background-color: #d6e4f8;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+    color: #003564;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-body h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-body h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.bg-primary {
+    background: linear-gradient(135deg, #003564, #007BFF);
+}
+
+.bg-info {
+    background: linear-gradient(135deg, #00B4D8, #48CAE4);
+}
+
+.bg-success {
+    background: linear-gradient(135deg, #06D6A0, #1B9C85);
+}
+
+.card-header {
+    background-color: #003564;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.card ul li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+    font-size: 0.95rem;
+}
+
+.card ul li:last-child {
+    border-bottom: none;
+}
+
+.small {
+    color: #888;
+}

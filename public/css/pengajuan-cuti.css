@@ -1,0 +1,167 @@
+/* Judul dan tombol tambah cuti */
+h1.h2 {
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #005daf;
+    border-color: #005daf;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #004c8d;
+    border-color: #004c8d;
+}
+
+/* Table header */
+.table thead.thead-dark th {
+    background-color: #005daf;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Table body cells */
+.table td,
+.table th {
+    vertical-align: middle !important;
+    font-size: 0.95rem;
+}
+
+/* Badge styling for status */
+.badge-warning {
+    background-color: #ffc107;
+    color: #212529;
+    font-weight: 600;
+}
+
+.badge-success {
+    background-color: #1aad3d;
+    color: #fff;
+    font-weight: 600;
+}
+
+.badge-danger {
+    background-color: #bb1526;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Tooltip button style */
+.btn-info {
+    background-color: #005daf;
+    border-color: #17a2b8;
+    color: white;
+    font-weight: 500;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #005daf;
+}
+
+/* Alert success */
+.alert-success {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-color: #bee5eb;
+}
+
+/* Responsive table adjustments */
+@media (max-width: 768px) {
+    .btn-group {
+        flex-direction: column;
+    }
+}
+
+/* Padding and spacing */
+.container-fluid {
+    padding: 2rem 1.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+
+
+/* General Styling */
+.container-fluid {
+    padding: 2rem;
+    background-color: #fdfdfd;
+}
+
+/* Table Styling */
+.table thead.thead-dark th {
+    background-color: #005daf;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* Badge Styling */
+.badge {
+    font-size: 0.85rem;
+    padding: 0.5em 0.75em;
+}
+
+/* Button Group Styling */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.btn-group .btn {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+/* Modal Styling */
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal-footer .btn {
+    min-width: 100px;
+}
+
+/* Card and Shadow */
+.card {
+    border-radius: 0.75rem;
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Alerts */
+.alert-success {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-group .btn {
+        width: 100%;
+    }
+}

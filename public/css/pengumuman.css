@@ -1,0 +1,116 @@
+
+/* Card title and important text color */
+.card-title,
+.text-primary {
+    color: #005daf !important;
+}
+
+/* Kembali button */
+.btn-outline-primary {
+    color: #005daf;
+    border-color: #005daf;
+}
+
+.btn-outline-primary:hover {
+    background-color: #005daf;
+    color: #fff;
+    border-color: #005daf;
+}
+
+/* Thumbnail image style */
+.card-img-top {
+    max-height: 350px;
+    object-fit: cover;
+    border-bottom: 4px solid #005daf;
+}
+
+/* Article content styling */
+.article-content {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* Creator text muted */
+.text-muted i {
+    color: #005daf;
+}
+
+
+
+
+/* General background and text styles */
+body {
+    background-color: #CAF4FF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header and action button */
+h1.h2 {
+    color: #005DAF;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: #005DAF;
+    border-color: #005DAF;
+}
+
+.btn-primary:hover {
+    background-color: #004a90;
+    border-color: #004a90;
+}
+
+/* Card styling */
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.card.shadow {
+    box-shadow: 0 4px 12px rgba(0, 93, 175, 0.2);
+}
+
+/* Alert styling */
+.alert-success {
+    background-color: #d1f0ff;
+    border-left: 5px solid #005DAF;
+    color: #005DAF;
+}
+
+/* Table styling */
+#pengumuman-table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#pengumuman-table th {
+    background-color: #005DAF;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#pengumuman-table td {
+    vertical-align: middle;
+    font-size: 0.95rem;
+}
+
+#pengumuman-table img {
+    border: 2px solid #005DAF;
+    box-shadow: 0 2px 6px rgba(0, 93, 175, 0.2);
+}
+
+/* Button size and spacing */
+.btn-sm {
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+/* Form delete inline */
+form[method="POST"] {
+    display: inline;
+}

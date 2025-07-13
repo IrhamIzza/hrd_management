@@ -1,0 +1,116 @@
+/* General Dashboard Background */
+.dashboard-bg {
+    background: #eefbff;
+    min-height: 100vh;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Stat Cards */
+.stat-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 24px rgba(0, 93, 175, 0.15);
+}
+
+.stat-icon-bg {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+/* Text in stat cards */
+.stat-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 0.3rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #005DAF;
+}
+
+/* Card Sections */
+.card-section {
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #005DAF;
+    background: #E7F6FF;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #dbe9f4;
+    border-radius: 18px 18px 0 0;
+}
+
+/* List Group */
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+/* Quick Action Buttons */
+.card-body .btn {
+    border-radius: 12px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card-body .btn-primary {
+    background-color: #005DAF;
+    border-color: #005DAF;
+}
+
+.card-body .btn-primary:hover {
+    background-color: #004a91;
+    border-color: #004a91;
+}
+
+.card-body .btn-success {
+    background-color: #00b894;
+    border-color: #00b894;
+}
+
+.card-body .btn-success:hover {
+    background-color: #009d7a;
+}
+
+.card-body .btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.card-body .btn-info:hover {
+    background-color: #138496;
+}
