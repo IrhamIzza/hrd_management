@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     <div class="container-fluid">
         <div class="card shadow">
-            <div class="card-header bg-primary text-white" >
-                <h2 class="mb-0">Profil Saya</h2>
+            <div class="card-header bg-primary text-white" style="background: #000 !important;">
+                <h2 class="mb-0">{{ __('messages.my_profile') }}</h2>
+
+
             </div>
             <div class="card-body">
 
@@ -22,7 +23,8 @@
                     <div class="row">
                         <div class="col-md-3 text-center mb-4">
                             <div class="form-group">
-                                <label>Foto Profil</label>
+                                {{-- <label>Foto Profil</label> --}}
+                                <label>{{ __('messages.profile_photo') }}</label>
                                 @if (auth()->user()->profile_photo)
                                     <img src="{{ asset('storage/' . auth()->user()->profile_photo) }}" alt="Foto Profil"
                                         class="img-fluid rounded-circle mb-2" style="max-width: 200px;">
@@ -42,105 +44,105 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Nama</label>
+                                        <label>{{ __('messages.name') }}</label>
                                         <input type="text" name="name" class="form-control"
                                             value="{{ auth()->user()->name }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Username</label>
+                                        <label>{{ __('messages.username') }}</label>
                                         <input type="text" name="username" class="form-control"
                                             value="{{ auth()->user()->username }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Email</label>
+                                        <label>{{ __('messages.email') }}</label>
                                         <input type="email" name="email" class="form-control"
                                             value="{{ auth()->user()->email }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Email Aktif</label>
+                                        <label>{{ __('messages.active_email') }}</label>
                                         <input type="email" name="email_active" class="form-control"
                                             value="{{ auth()->user()->email_active }}">
                                     </div>
                                     <div class="form-group">
-                                        <label>Tanggal Lahir</label>
+                                        <label>{{ __('messages.birth_date') }}</label>
                                         <input type="date" name="birth_date" class="form-control"
                                             value="{{ auth()->user()->birth_date ? auth()->user()->birth_date->format('Y-m-d') : '' }}">
                                     </div>
                                     <div class="form-group">
-                                        <label>No. Telepon</label>
+                                        <label>{{ __('messages.phone') }}</label>
                                         <input type="text" name="phone" class="form-control"
                                             value="{{ auth()->user()->phone }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>NIP</label>
+                                        <label>{{ __('messages.nip') }}</label>
                                         <input type="text" name="nip" class="form-control"
                                             value="{{ auth()->user()->nip }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Departemen</label>
+                                        <label>{{ __('messages.department') }}</label>
                                         <input type="text" name="departement" class="form-control"
                                             value="{{ auth()->user()->departement }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Alamat Rumah</label>
+                                        <label>{{ __('messages.home_address') }}</label>
                                         <textarea name="home_address" class="form-control">{{ auth()->user()->home_address }}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Alamat Tempat Kerja</label>
+                                        <label>{{ __('messages.work_address') }}</label>
                                         <textarea name="work_address" class="form-control">{{ auth()->user()->work_address }}</textarea>
                                     </div>
                                     @if (auth()->user()->isHrd())
                                         <div class="form-group">
-                                            <label>Role</label>
+                                            <label>{{ __('messages.role') }}</label>
                                             <input type="text" class="form-control"
                                                 value="{{ ucfirst(auth()->user()->role) }}" readonly>
                                         </div>
                                         <div class="form-group">
-                                            <label>Jabatan</label>
+                                            <label>{{ __('messages.position') }}</label>
                                             <input type="text" class="form-control"
                                                 value="{{ ucfirst(auth()->user()->position) }}" readonly>
                                         </div>
                                     @endif
                                     <div class="form-group">
-                                        <label>Tanggal Mulai Kerja</label>
+                                        <label>{{ __('messages.join_date') }}</label>
                                         <input type="date" name="join_date" id="join_date" class="form-control"
                                             value="{{ auth()->user()->join_date ? auth()->user()->join_date->format('Y-m-d') : '' }}">
                                     </div>
                                     @if (auth()->user()->isHrd())
                                         <div class="form-group">
-                                            <label>Status Kepegawaian</label>
+                                            <label>{{ __('messages.employment_status') }}</label>
                                             <input type="text" class="form-control"
                                                 value="{{ ucfirst(auth()->user()->employment_status) }}" readonly>
                                         </div>
                                         <div class="form-group">
-                                            <label>Durasi Kontrak</label>
+                                            <label>{{ __('messages.contract_duration') }}</label>
                                             <input type="text" class="form-control"
                                                 value="{{ auth()->user()->contract_duration ? auth()->user()->contract_duration . ' bulan' : '-' }}"
                                                 readonly>
                                         </div>
                                     @endif
                                     <div class="form-group">
-                                        <label>Tanggal Berakhir Kerja</label>
+                                        <label>{{ __('messages.end_work_date') }}</label>
                                         <input type="text" id="end_date" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
-                                        <label>Lama Bekerja</label>
+                                        <label>{{ __('messages.work_duration') }}</label>
                                         <input type="text" id="work_duration_days" class="form-control" readonly>
                                     </div>
 
 
                                     <div class="form-group">
-                                        <label>Sisa Waktu Bekerja</label>
+                                        <label>{{ __('messages.remaining_time') }}</label>
                                         <input type="text" id="remaining_days" class="form-control" readonly>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Password Baru</label>
+                                        <label>{{ __('messages.new_password') }}</label>
                                         <input type="password" name="password" class="form-control">
-                                        <small class="form-text text-muted">Kosongkan jika tidak ingin mengubah
-                                            password</small>
+                                        <small
+                                            class="form-text text-muted">{{ __('messages.leave_blank_password') }}</small>
                                     </div>
                                 </div>
                             </div>
@@ -150,75 +152,44 @@
 
 
 
-                
-                    <div class="card-header bg-primary text-white">
-                        <h2 class="mb-0">Unggah Dokumen</h2>
-                    </div>
-
+                    <hr>
+                    <h4>{{ __('messages.upload_documents') }}</h4>
                     <div class="row">
                         {{-- Upload Ijazah --}}
-                        <div class="col-md-6 text-center mb-8">
+                        <div class="col-md-3 text-center mb-4">
                             <div class="form-group">
-                                <label>Upload Ijazah</label>
-                                @php
-                                    $ijazah = auth()->user()->ijazah;
-                                    $ijazah_path = $ijazah ? asset('storage/' . $ijazah) : null;
-                                    $ext = $ijazah ? pathinfo($ijazah_path, PATHINFO_EXTENSION) : null;
-                                @endphp
-
-                                @if ($ijazah)
-                                    <a href="{{ $ijazah_path }}" target="_blank" title="Klik untuk membuka"
-                                        class="d-block mb-2" style="width: 200px; height: 200px; margin: 0 auto;">
-                                        @if (in_array(strtolower($ext), ['jpg', 'jpeg', 'png', 'gif']))
-                                            <div class="bg-light rounded d-flex align-items-center justify-content-center"
-                                                style="width: 100%; height: 100%;">
-                                                <img src="{{ $ijazah_path }}" alt="Ijazah"
-                                                    style="max-width: 100%; max-height: 100%; object-fit: contain;" />
-                                            </div>
-                                        @else
-                                            <div class="bg-light rounded d-flex flex-column align-items-center justify-content-center"
-                                                style="width: 100%; height: 100%;">
-                                                <i class="fas fa-file-alt fa-3x text-primary mb-2"></i>
-                                                <span style="font-size: 14px;">Lihat File</span>
-                                            </div>
-                                        @endif
-                                    </a>
+                                <label>{{ __('messages.upload_ijazah') }}</label>
+                                @if (auth()->user()->ijazah)
+                                    <div class="bg-light rounded d-flex align-items-center justify-content-center mb-2"
+                                        style="width: 200px; height: 200px; margin: 0 auto;">
+                                        <a href="{{ asset('storage/' . auth()->user()->ijazah) }}" target="_blank">
+                                            <i class="fas fa-file-pdf fa-4x text-danger"></i>
+                                            <p class="mt-2">{{ __('messages.view_ijazah') }}</p>
+                                        </a>
+                                    </div>
                                 @else
                                     <div class="bg-secondary rounded d-flex align-items-center justify-content-center mb-2"
                                         style="width: 200px; height: 200px; margin: 0 auto;">
                                         <i class="fas fa-file-upload fa-4x text-white"></i>
                                     </div>
                                 @endif
-
                                 <center>
                                     <input type="file" name="ijazah" class="form-control"
-                                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                                        accept=".pdf,.jpg,.jpeg,.png">
                                 </center>
                             </div>
                         </div>
 
                         {{-- Upload SIP --}}
-                        <div class="col-md-6 text-center mb-4">
+                        <div class="col-md-3 text-center mb-4">
                             <div class="form-group">
-                                <label>Upload SIP</label>
+                                <label>{{ __('messages.upload_sip') }}</label>
                                 @if (auth()->user()->sip)
-                                    @php
-                                        $sipPath = asset('storage/' . auth()->user()->sip);
-                                        $sipExt = pathinfo(auth()->user()->sip, PATHINFO_EXTENSION);
-                                    @endphp
                                     <div class="bg-light rounded d-flex align-items-center justify-content-center mb-2"
                                         style="width: 200px; height: 200px; margin: 0 auto;">
-                                        <a href="{{ $sipPath }}" target="_blank">
-                                            @if (in_array($sipExt, ['jpg', 'jpeg', 'png']))
-                                                <img src="{{ $sipPath }}"
-                                                    style="max-width: 100%; max-height: 100%;" />
-                                            @elseif ($sipExt == 'pdf')
-                                                <i class="fas fa-file-pdf fa-4x text-danger"></i>
-                                            @elseif (in_array($sipExt, ['doc', 'docx']))
-                                                <i class="fas fa-file-word fa-4x text-primary"></i>
-                                            @else
-                                                <i class="fas fa-file fa-4x text-dark"></i>
-                                            @endif
+                                        <a href="{{ asset('storage/' . auth()->user()->sip) }}" target="_blank">
+                                            <i class="fas fa-file-pdf fa-4x text-danger"></i>
+                                            <p class="mt-2">{{ __('messages.view_sip') }}</p>
                                         </a>
                                     </div>
                                 @else
@@ -229,33 +200,21 @@
                                 @endif
                                 <center>
                                     <input type="file" name="sip" class="form-control"
-                                        accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                                        accept=".pdf,.jpg,.jpeg,.png">
                                 </center>
                             </div>
                         </div>
 
                         {{-- Upload KTP --}}
-                        <div class="col-md-6 text-center mb-4">
+                        <div class="col-md-3 text-center mb-4">
                             <div class="form-group">
-                                <label>Upload KTP</label>
+                                <label>{{ __('messages.upload_ktp') }}</label>
                                 @if (auth()->user()->ktp)
-                                    @php
-                                        $ktpPath = asset('storage/' . auth()->user()->ktp);
-                                        $ktpExt = pathinfo(auth()->user()->ktp, PATHINFO_EXTENSION);
-                                    @endphp
                                     <div class="bg-light rounded d-flex align-items-center justify-content-center mb-2"
                                         style="width: 200px; height: 200px; margin: 0 auto;">
-                                        <a href="{{ $ktpPath }}" target="_blank">
-                                            @if (in_array($ktpExt, ['jpg', 'jpeg', 'png']))
-                                                <img src="{{ $ktpPath }}"
-                                                    style="max-width: 100%; max-height: 100%;" />
-                                            @elseif ($ktpExt == 'pdf')
-                                                <i class="fas fa-file-pdf fa-4x text-danger"></i>
-                                            @elseif (in_array($ktpExt, ['doc', 'docx']))
-                                                <i class="fas fa-file-word fa-4x text-primary"></i>
-                                            @else
-                                                <i class="fas fa-file fa-4x text-dark"></i>
-                                            @endif
+                                        <a href="{{ asset('storage/' . auth()->user()->ktp) }}" target="_blank">
+                                            <i class="fas fa-id-card fa-4x text-primary"></i>
+                                            <p class="mt-2">{{ __('messages.view_ktp') }}</p>
                                         </a>
                                     </div>
                                 @else
@@ -266,33 +225,21 @@
                                 @endif
                                 <center>
                                     <input type="file" name="ktp" class="form-control"
-                                        accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                                        accept=".pdf,.jpg,.jpeg,.png">
                                 </center>
                             </div>
                         </div>
 
-                        {{-- Upload Kartu Keluarga (KK) --}}
-                        <div class="col-md-6 text-center mb-4">
+                        {{-- Upload KK --}}
+                        <div class="col-md-3 text-center mb-4">
                             <div class="form-group">
-                                <label>Upload Kartu Keluarga (KK)</label>
+                                <label>{{ __('messages.upload_kk') }}</label>
                                 @if (auth()->user()->kk)
-                                    @php
-                                        $kkPath = asset('storage/' . auth()->user()->kk);
-                                        $kkExt = pathinfo(auth()->user()->kk, PATHINFO_EXTENSION);
-                                    @endphp
                                     <div class="bg-light rounded d-flex align-items-center justify-content-center mb-2"
                                         style="width: 200px; height: 200px; margin: 0 auto;">
-                                        <a href="{{ $kkPath }}" target="_blank">
-                                            @if (in_array($kkExt, ['jpg', 'jpeg', 'png']))
-                                                <img src="{{ $kkPath }}"
-                                                    style="max-width: 100%; max-height: 100%;" />
-                                            @elseif ($kkExt == 'pdf')
-                                                <i class="fas fa-file-pdf fa-4x text-danger"></i>
-                                            @elseif (in_array($kkExt, ['doc', 'docx']))
-                                                <i class="fas fa-file-word fa-4x text-primary"></i>
-                                            @else
-                                                <i class="fas fa-file fa-4x text-dark"></i>
-                                            @endif
+                                        <a href="{{ asset('storage/' . auth()->user()->kk) }}" target="_blank">
+                                            <i class="fas fa-file-alt fa-4x text-info"></i>
+                                            <p class="mt-2">{{ __('messages.view_kk') }}</p>
                                         </a>
                                     </div>
                                 @else
@@ -303,18 +250,18 @@
                                 @endif
                                 <center>
                                     <input type="file" name="kk" class="form-control"
-                                        accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                                        accept=".pdf,.jpg,.jpeg,.png">
                                 </center>
                             </div>
                         </div>
-
                     </div>
 
 
 
                     <div class="mt-4">
-                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                        <a href="/dashboard" class="btn btn-secondary">Kembali</a>
+                        <button type="submit" class="btn btn-primary">{{ __('messages.save_changes') }}</button>
+                        <a href="/dashboard" class="btn btn-secondary">{{ __('messages.back') }}</a>
+
                     </div>
                 </form>
             </div>

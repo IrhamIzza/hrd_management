@@ -33,7 +33,7 @@ class RegisteredUserController extends Controller
             'home_address' => ['nullable', 'string'],
             'work_address' => ['nullable', 'string'],
             'join_date' => ['nullable', 'date'],
-            'role' => ['required', 'in:hrd'],
+            'role' => ['required', 'in:hrd,karyawan'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 

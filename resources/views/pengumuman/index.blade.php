@@ -3,9 +3,11 @@
 @section('content')
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h1 class="h2">Pengumuman</h1>
-            <a href="{{ route('pengumuman.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah
-                Pengumuman</a>
+            <h1 class="h2">{{ __('messages.announcement') }}</h1>
+            <a href="{{ route('pengumuman.create') }}" class="btn btn-primary">
+    <i class="fas fa-plus"></i> {{ __('messages.add_announcement') }}
+</a>
+
         </div>
         <hr class="mb-3" />
         @if (session('success'))
@@ -16,12 +18,12 @@
                 <table id="pengumuman-table" class="table table-bordered table-hover table-striped">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Thumbnail</th>
-                            <th>Judul</th>
-                            <th>Eff. Start</th>
-                            <th>Eff. End</th>
-                            <th>Dibuat Oleh</th>
-                            <th>Aksi</th>
+                            <th>{{ __('messages.thumbnail') }}</th>
+                            <th>{{ __('messages.title') }}</th>
+                            <th>{{ __('messages.effective_start') }}</th>
+                            <th>{{ __('messages.effective_end') }}</th>
+                            <th>{{ __('messages.created_by') }}</th>
+                            <th>{{ __('messages.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,8 +38,14 @@
                                     @endif
                                 </td>
                                 <td>{{ $item->judul }}</td>
-                                <td>{{ $item->efficient_start_date ?? '-' }}</td>
-                                <td>{{ $item->efficient_end_date ?? '-' }}</td>
+
+                                <td>{{ $item->efficient_start_date ? \Carbon\Carbon::parse($item->efficient_start_date)->format('d-m-Y') : '-' }}
+                                </td>
+                                <td>{{ $item->efficient_end_date ? \Carbon\Carbon::parse($item->efficient_end_date)->format('d-m-Y') : '-' }}
+                                </td>
+
+
+
                                 <td>{{ $item->creator->name ?? '-' }}</td>
                                 <td>
                                     <a href="{{ route('pengumuman.show', $item) }}" class="btn btn-sm btn-primary"><i

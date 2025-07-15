@@ -53,11 +53,7 @@ class ProfileController extends Controller
             if ($user->profile_photo) {
                 Storage::disk('public')->delete($user->profile_photo);
             }
-            $file = $request->file('profile_photo');
-            $extension = $file->getClientOriginalExtension();
-            $filename = 'pp_' .($user->username). '.'. $extension;
-            // $file->storeAs('profile-photos',$filename, 'public');
-            $data['profile_photo'] = $request->file('profile_photo')->storeAs('profile-photos',$filename, 'public');
+            $data['profile_photo'] = $request->file('profile_photo')->store('profile-photos', 'public');
         }
 
         // Upload dokumen-dokumen

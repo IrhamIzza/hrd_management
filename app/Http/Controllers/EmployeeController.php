@@ -88,13 +88,7 @@ class EmployeeController extends Controller
     public function update(Request $request, User $employee)
     {
         $editableFields = $employee->getEditableFields();
-        $user = auth()->user();
-        $validationRules = [
-            'ijazah' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'sip' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'kk' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'ktp' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-        ];
+        $validationRules = [];
 
         // Add validation rules for editable fields
         foreach ($editableFields as $field) {
@@ -161,26 +155,6 @@ class EmployeeController extends Controller
             $data['profile_photo'] = $request->file('profile_photo')->store('profile-photos', 'public');
         }
 
-        $documentFields = ['ijazah', 'sip', 'kk', 'ktp'];
-        $uploadMessages = [];
-
-        foreach ($documentFields as $field) {
-            if ($request->hasFile($field)) {
-                // Hapus file lama jika ada
-                if ($user->$field) {
-                    Storage::disk('public')->delete($user->$field);
-                }
-
-                $path = $request->file($field)->store("documents/{$field}", 'public');
-
-                if ($path) {
-                    $data[$field] = $path;
-                    $uploadMessages[] = ucfirst($field) . ' berhasil diunggah.';
-                } else {
-                    $uploadMessages[] = 'Gagal mengunggah ' . $field . '.';
-                }
-            }
-        }
         $employee->update($data);
         $employee->calculateWorkDuration();
         // $employee->calculateWorkDetails();

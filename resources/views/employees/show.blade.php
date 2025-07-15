@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="{{ asset('css/employees.css') }}" rel="stylesheet">
     <div class="container-fluid">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">

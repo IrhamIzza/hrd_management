@@ -1,110 +1,114 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="{{ asset('css/employees.css') }}" rel="stylesheet">
     <div class="container-fluid">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
-                <h2 class="mb-0">Tambah Karyawan</h2>
+                <h2 class="mb-0">{{ __('messages.add_employee') }}</h2>
             </div>
             <div class="card-body">
                 <form action="{{ route('employees.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label>Foto Profil</label>
+                        <label>{{ __('messages.profile_photo') }}</label>
                         <input type="file" name="profile_photo" class="form-control" accept="image/*">
                     </div>
                     <div class="form-group">
-                        <label>Nama</label>
+                        <label>{{ __('messages.name') }}</label>
                         <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
                     </div>
                     <div class="form-group">
-                        <label>Username</label>
+                        <label>{{ __('messages.username') }}</label>
                         <input type="text" name="username" class="form-control" value="{{ old('username') }}" required>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
+                        <label>{{ __('messages.email') }}</label>
                         <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
                     </div>
                     <div class="form-group">
-                        <label>Email Aktif</label>
+                        <label>{{ __('messages.active_email') }}</label>
                         <input type="email" name="email_active" class="form-control" value="{{ old('email_active') }}">
                     </div>
                     <div class="form-group">
-                        <label>Tanggal Lahir</label>
+                        <label>{{ __('messages.birth_date') }}</label>
                         <input type="date" name="birth_date" class="form-control" value="{{ old('birth_date') }}">
                     </div>
                     <div class="form-group">
-                        <label>No. Telepon</label>
+                        <label>{{ __('messages.phone') }}</label>
                         <input type="text" name="phone" class="form-control" value="{{ old('phone') }}" required>
                     </div>
                     <div class="form-group">
-                        <label>NIP</label>
+                        <label>{{ __('messages.nip') }}</label>
                         <input type="text" name="nip" class="form-control" value="{{ old('nip') }}">
                     </div>
                     <div class="form-group">
-                        <label>Departemen</label>
+                        <label>{{ __('messages.department') }}</label>
                         <input type="text" name="departement" class="form-control" value="{{ old('departement') }}"
                             required>
                     </div>
+
                     <div class="form-group">
-                        <label>Alamat Rumah</label>
+                        <label>{{ __('messages.home_address') }}</label>
                         <textarea name="home_address" class="form-control">{{ old('home_address') }}</textarea>
                     </div>
+
                     <div class="form-group">
-                        <label>Alamat Tempat Kerja</label>
+                        <label>{{ __('messages.work_address') }}</label>
                         <textarea name="work_address" class="form-control">{{ old('work_address') }}</textarea>
                     </div>
                     @if (auth()->user()->isHrd())
                         <div class="form-group">
-                            <label>Role</label>
+                            <label>{{ __('messages.role') }}</label>
                             <select name="role" class="form-control" required>
-                                <option value="karyawan" {{ old('role') === 'karyawan' ? 'selected' : '' }}>Karyawan
+                                <option value="karyawan" {{ old('role') === 'karyawan' ? 'selected' : '' }}>
+                                    {{ __('messages.employee') }}
                                 </option>
-                                <option value="hrd" {{ old('role') === 'hrd' ? 'selected' : '' }}>HRD</option>
+                                <option value="hrd" {{ old('role') === 'hrd' ? 'selected' : '' }}>
+                                    {{ __('messages.hrd') }}
+                                </option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Jabatan</label>
+                            <label>{{ __('messages.position') }}</label>
                             <select name="position" class="form-control">
                                 <option value="">Pilih Jabatan</option>
                                 <option value="dokter" {{ old('position') === 'dokter' ? 'selected' : '' }}>Dokter</option>
                                 <option value="perawat" {{ old('position') === 'perawat' ? 'selected' : '' }}>Perawat
                                 </option>
-                                <option value="bidan" {{ old('position') === 'bidan' ? 'selected' : '' }}>Bidan
-                                </option>
-                                <option value="ttk"
-                                    {{ old('position') === 'ttk' ? 'selected' : '' }}>TTK
+                                <option value="petugas_kebersihan"
+                                    {{ old('position') === 'petugas_kebersihan' ? 'selected' : '' }}>Petugas Kebersihan
                                 </option>
                                 <option value="kepala_dokter" {{ old('position') === 'kepala_dokter' ? 'selected' : '' }}>
                                     Kepala Dokter</option>
                                 <option value="manager" {{ old('position') === 'manager' ? 'selected' : '' }}>Manager
                                 </option>
-                                <option value="analis" {{ old('position') === 'analis' ? 'selected' : '' }}>Analis</option>
+                                <option value="staff" {{ old('position') === 'staff' ? 'selected' : '' }}>Staff</option>
                                 <option value="supervisor" {{ old('position') === 'supervisor' ? 'selected' : '' }}>
                                     Supervisor</option>
                                 <option value="kepala_cabang" {{ old('position') === 'kepala_cabang' ? 'selected' : '' }}>
                                     Kepala Cabang</option>
-                                <option value="apoteker" {{ old('position') === 'apoteker' ? 'selected' : '' }}>
-                                    Apoteker</option>
-                                <option value="ahligizi" {{ old('position') === 'ahligizi' ? 'selected' : '' }}>Ahli Gizi
+                                <option value="accounting" {{ old('position') === 'accounting' ? 'selected' : '' }}>
+                                    Accounting</option>
+                                <option value="finance" {{ old('position') === 'finance' ? 'selected' : '' }}>Finance
                                 </option>
                                 <option value="others" {{ old('position') === 'others' ? 'selected' : '' }}>Others</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Tanggal Mulai Kerja</label>
+                            <label>{{ __('messages.join_date') }}</label>
                             <input type="date" name="join_date" id="join_date" class="form-control"
                                 value="{{ old('join_date') }}">
                         </div>
                         <div class="form-group">
-                            <label>Status Kepegawaian</label>
+                            <label>{{ __('messages.employment_status') }}</label>
                             <select name="employment_status" class="form-control">
-                                <option value="">Pilih Status</option>
-                                <option value="tetap" {{ old('employment_status') === 'tetap' ? 'selected' : '' }}>Tetap
+                                <option value="">{{ __('messages.select_status') }}</option>
+                                <option value="tetap" {{ old('employment_status') === 'tetap' ? 'selected' : '' }}>
+                                    {{ __('messages.permanent') }}
                                 </option>
                                 <option value="kontrak" {{ old('employment_status') === 'kontrak' ? 'selected' : '' }}>
-                                    Kontrak</option>
+                                    {{ __('messages.contract') }}
+                                </option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -131,8 +135,9 @@
                         <label>Password</label>
                         <input type="password" name="password" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-success">Simpan</button>
-                    <a href="{{ route('employees.index') }}" class="btn btn-secondary">Batal</a>
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a href="{{ route('employees.index') }}" class="btn btn-secondary">{{ __('messages.cancel') }}</a>
+
                 </form>
             </div>
         </div>
@@ -155,5 +160,4 @@
             window.addEventListener('DOMContentLoaded', calculateWorkDuration);
         </script>
     @endpush
-   
 @endsection

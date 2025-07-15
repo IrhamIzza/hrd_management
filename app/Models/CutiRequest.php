@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +16,7 @@ class CutiRequest extends Model
         'rejection_reason',
         'reviewed_by',
         'reviewed_at',
+        'bukti',
     ];
 
     public function user()

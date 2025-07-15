@@ -37,7 +37,3 @@
     </div>
 </div>
 @endsection 
-
-@push('styles')
-<link href="{{ asset('css/pengumuman.css') }}" rel="stylesheet">
-@endpush

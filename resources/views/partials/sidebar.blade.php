@@ -16,7 +16,8 @@
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Dashboard</p>
+                        {{-- <p>Dashboard</p> --}}
+                        <p>{{ __('messages.dashboard') }}</p>
                     </a>
                 </li>
 
@@ -26,48 +27,55 @@
                         <a href="/manage-employees"
                             class="nav-link {{ Request::is('manage-employees') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-users"></i>
-                            <p> Data Karyawan</p>
+                            {{-- <p> Data Karyawan</p> --}}
+                            <p>{{ __('messages.employee_data') }}</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="/hrd/cuti-requests"
                             class="nav-link {{ Request::is('hrd/cuti-requests') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-calendar-alt"></i>
-                            <p> Pengajuan Cuti</p>
+                            {{-- <p> Pengajuan Cuti</p> --}}
+                            <p>{{ __('messages.leave_requests') }}</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="/pengumuman" class="nav-link {{ Request::is('pengumuman') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-bullhorn"></i>
-                            <p> Pengumuman</p>
+                            {{-- <p> Pengumuman</p> --}}
+                            <p>{{ __('messages.announcement') }}</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="/pusat_pembelajaran"
                             class="nav-link {{ Request::is('pusat_pembelajaran') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-book"></i>
-                            <p>Perpustakaan Digital</p>
+                            {{-- <p>Pusat Pembelajaran</p> --}}
+                            <p>{{ __('messages.learning_center') }}</p>
                         </a>
                     </li>
                 @else
                     <li class="nav-item">
                         <a href="/cuti-requests" class="nav-link {{ Request::is('cuti-requests') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-calendar-alt"></i>
-                            <p> Pengajuan Cuti</p>
+                            {{-- <p> Pengajuan Cuti</p> --}}
+                               <p>{{ __('messages.leave_requests') }}</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="/karyawan/pengumuman"
                             class="nav-link {{ Request::is('karyawan/pengumuman') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-bullhorn"></i>
-                            <p> Pengumuman</p>
+                            {{-- <p> Pengumuman</p> --}}
+            <p>{{ __('messages.announcement') }}</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="/karyawan/pembelajaran"
                             class="nav-link {{ Request::is('karyawan/pembelajaran') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-book"></i>
-                            <p>Perpustakaan Digital</p>
+                            {{-- <p>Pusat Pembelajaran</p> --}}
+                             <p>{{ __('messages.learning_center') }}</p>
                         </a>
                     </li>
                 @endif

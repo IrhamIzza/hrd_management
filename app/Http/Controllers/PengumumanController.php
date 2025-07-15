@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Pengumuman;
@@ -40,7 +39,7 @@ class PengumumanController extends Controller
         $data = $request->validate([
             'judul' => 'required|string|max:255',
             'deskripsi' => 'required|string',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'efficient_start_date' => 'nullable|date',
             'efficient_end_date' => 'nullable|date|after_or_equal:efficient_start_date',
         ]);
@@ -48,7 +47,7 @@ class PengumumanController extends Controller
             $data['thumbnail'] = $request->file('thumbnail')->store('pengumuman_thumbnails', 'public');
         }
         $data['created_by'] = Auth::id();
-
+        
         $pengumuman = Pengumuman::create($data);
 
         // Send notifications to all employees
@@ -78,7 +77,7 @@ class PengumumanController extends Controller
         $data = $request->validate([
             'judul' => 'required|string|max:255',
             'deskripsi' => 'required|string',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'efficient_start_date' => 'nullable|date',
             'efficient_end_date' => 'nullable|date|after_or_equal:efficient_start_date',
         ]);
@@ -88,7 +87,6 @@ class PengumumanController extends Controller
             }
             $data['thumbnail'] = $request->file('thumbnail')->store('pengumuman_thumbnails', 'public');
         }
-      
         $pengumuman->update($data);
         return redirect()->route('pengumuman.index')->with('success', 'Pengumuman berhasil diupdate.');
     }
@@ -116,4 +114,4 @@ class PengumumanController extends Controller
     {
         return view('pengumuman.show', compact('pengumuman'));
     }
-}
+} 

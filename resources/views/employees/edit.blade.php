@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <link href="{{ asset('css/employees.css') }}" rel="stylesheet">
     <div class="container-fluid">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
@@ -64,19 +63,11 @@
                         <input type="text" name="nip" class="form-control" value="{{ old('nip', $employee->nip) }}">
                     </div>
 
-                    {{-- <div class="form-group">
-                        <label>Departemen</label>
-                        <input type="text" name="departement" class="form-control"
-                            value="{{ old('departement', $employee->departement) }}" required>
-                    </div> --}}
-
                     <div class="form-group">
                         <label>Departemen</label>
                         <input type="text" name="departement" class="form-control"
-                            placeholder="Mohon selalu di isi dengan Departemen Kesehatan"
-                            value="{{ old('departement', $employee->departement) }}">
+                            value="{{ old('departement', $employee->departement) }}" required>
                     </div>
-
 
                     <div class="form-group">
                         <label>Alamat Rumah</label>
@@ -107,24 +98,25 @@
                                 </option>
                                 <option value="perawat" {{ $employee->position === 'perawat' ? 'selected' : '' }}>Perawat
                                 </option>
-                                <option value="bidan" {{ old('position') === 'bidan' ? 'selected' : '' }}>Bidan
+                                <option value="petugas_kebersihan"
+                                    {{ $employee->position === 'petugas_kebersihan' ? 'selected' : '' }}>Petugas Kebersihan
                                 </option>
-                                <option value="ttk" {{ old('position') === 'ttk' ? 'selected' : '' }}>TTK
+                                <option value="kepala_dokter"
+                                    {{ $employee->position === 'kepala_dokter' ? 'selected' : '' }}>Kepala Dokter</option>
+                                <option value="manager" {{ $employee->position === 'manager' ? 'selected' : '' }}>Manager
                                 </option>
-                                <option value="kepala_dokter" {{ old('position') === 'kepala_dokter' ? 'selected' : '' }}>
-                                    Kepala Dokter</option>
-                                <option value="manager" {{ old('position') === 'manager' ? 'selected' : '' }}>Manager
+                                <option value="staff" {{ $employee->position === 'staff' ? 'selected' : '' }}>Staff
                                 </option>
-                                <option value="analis" {{ old('position') === 'analis' ? 'selected' : '' }}>Analis</option>
-                                <option value="supervisor" {{ old('position') === 'supervisor' ? 'selected' : '' }}>
+                                <option value="supervisor" {{ $employee->position === 'supervisor' ? 'selected' : '' }}>
                                     Supervisor</option>
-                                <option value="kepala_cabang" {{ old('position') === 'kepala_cabang' ? 'selected' : '' }}>
-                                    Kepala Cabang</option>
-                                <option value="apoteker" {{ old('position') === 'apoteker' ? 'selected' : '' }}>
-                                    Apoteker</option>
-                                <option value="ahligizi" {{ old('position') === 'ahligizi' ? 'selected' : '' }}>Ahli Gizi
+                                <option value="kepala_cabang"
+                                    {{ $employee->position === 'kepala_cabang' ? 'selected' : '' }}>Kepala Cabang</option>
+                                <option value="accounting" {{ $employee->position === 'accounting' ? 'selected' : '' }}>
+                                    Accounting</option>
+                                <option value="finance" {{ $employee->position === 'finance' ? 'selected' : '' }}>Finance
                                 </option>
-                                <option value="others" {{ old('position') === 'others' ? 'selected' : '' }}>Others</option>
+                                <option value="others" {{ $employee->position === 'others' ? 'selected' : '' }}>Others
+                                </option>
                             </select>
                         </div>
 
@@ -165,58 +157,47 @@
 
 
                     <!-- Dokumen Pendukung -->
-                    <div class="form-group mb-4">
-                        <label style="font-size: 1.2rem; font-weight: 600;">Ijazah</label>
+                    <div class="form-group">
+                        <label>Ijazah</label>
+                        <input type="file" name="ijazah" class="form-control">
                         @if ($employee->ijazah)
-                            <a href="{{ asset('storage/' . $employee->ijazah) }}" target="_blank">
-                                <img src="{{ asset('storage/' . $employee->ijazah) }}" alt="Ijazah"
-                                    style="width: 200px; height: 200px; object-fit: cover; cursor: zoom-in;"
-                                    class="d-block mt-2 img-thumbnail">
-                            </a>
+                            <a href="{{ asset('storage/' . $employee->ijazah) }}" target="_blank"
+                                class="d-block mt-2">Lihat Ijazah</a>
                         @endif
-                        <input type="file" name="ijazah" class="form-control mt-2" style="font-size: 1rem;">
                     </div>
 
-                    <div class="form-group mb-4">
-                        <label style="font-size: 1.2rem; font-weight: 600;">SIP</label>
+                    <div class="form-group">
+                        <label>SIP</label>
+                        <input type="file" name="sip" class="form-control">
                         @if ($employee->sip)
-                            <a href="{{ asset('storage/' . $employee->sip) }}" target="_blank">
-                                <img src="{{ asset('storage/' . $employee->sip) }}" alt="SIP"
-                                    style="width: 200px; height: 200px; object-fit: cover; cursor: zoom-in;"
-                                    class="d-block mt-2 img-thumbnail">
-                            </a>
+                            <a href="{{ asset('storage/' . $employee->sip) }}" target="_blank"
+                                class="d-block mt-2">Lihat SIP</a>
                         @endif
-                        <input type="file" name="sip" class="form-control mt-2" style="font-size: 1rem;">
                     </div>
 
-                    <div class="form-group mb-4">
-                        <label style="font-size: 1.2rem; font-weight: 600;">Kartu Keluarga (KK)</label>
+                    <div class="form-group">
+                        <label>Kartu Keluarga (KK)</label>
+                        <input type="file" name="kk" class="form-control">
                         @if ($employee->kk)
-                            <a href="{{ asset('storage/' . $employee->kk) }}" target="_blank">
-                                <img src="{{ asset('storage/' . $employee->kk) }}" alt="KK"
-                                    style="width: 200px; height: 200px; object-fit: cover; cursor: zoom-in;"
-                                    class="d-block mt-2 img-thumbnail">
-                            </a>
+                            <a href="{{ asset('storage/' . $employee->kk) }}" target="_blank" class="d-block mt-2">Lihat
+                                KK</a>
                         @endif
-                        <input type="file" name="kk" class="form-control mt-2" style="font-size: 1rem;">
                     </div>
 
-                    <div class="form-group mb-4">
-                        <label style="font-size: 1.2rem; font-weight: 600;">KTP</label>
+                    <div class="form-group">
+                        <label>KTP</label>
+                        <input type="file" name="ktp" class="form-control">
                         @if ($employee->ktp)
-                            <a href="{{ asset('storage/' . $employee->ktp) }}" target="_blank">
-                                <img src="{{ asset('storage/' . $employee->ktp) }}" alt="KTP"
-                                    style="width: 200px; height: 200px; object-fit: cover; cursor: zoom-in;"
-                                    class="d-block mt-2 img-thumbnail">
-                            </a>
+                            <a href="{{ asset('storage/' . $employee->ktp) }}" target="_blank"
+                                class="d-block mt-2">Lihat KTP</a>
                         @endif
-                        <input type="file" name="ktp" class="form-control mt-2" style="font-size: 1rem;">
                     </div>
+
 
 
                     <button type="submit" class="btn btn-success">Simpan Perubahan</button>
                     <div class="mt-4">
-                        <a href="{{ route('employees.index') }}" class="btn btn-secondary">Kembali</a>
+                        <a href="/dashboard" class="btn btn-secondary">Kembali</a>
                     </div>
                 </form>
             </div>

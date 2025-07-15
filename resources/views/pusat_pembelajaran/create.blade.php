@@ -32,7 +32,3 @@
     </div>
 </div>
 @endsection 
-
-@push('styles')
-<link href="{{ asset('css/pusat-pembelajaran.css') }}" rel="stylesheet">
-@endpush

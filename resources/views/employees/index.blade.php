@@ -1,13 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <link href="{{ asset('css/employees.css') }}" rel="stylesheet">
-
     <div class="container-fluid">
         <div class="card shadow">
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center"
-                style="background: #003564 !important;">
-                <h2 class="mb-0">Data Karyawan</h2>
+                style="background: #000 !important;">
+                <h2 class="mb-0">{{ __('messages.employee_data') }}</h2>
             </div>
             <div class="card-body">
                 @if (session('success'))
@@ -16,33 +14,26 @@
                     </div>
                 @endif
 
-
                 <div class="table-responsive">
                     <a href="{{ route('employees.create') }}" class="btn btn-info mb-4">
-                        <i class="fas fa-plus"></i> Tambah Karyawan
+                        <i class="fas fa-plus"></i> {{ __('messages.add_employee') }}
                     </a>
-                    <div class="mb-3">
-                        <input type="text" id="searchInput" class="form-control"
-                            placeholder="Cari Nama,Username,Departemen, atau Status Kepegawaian...">
-                    </div>
-
                     <table class="table table-bordered table-hover">
                         <thead class="bg-light">
                             <tr>
                                 <th>No</th>
-                                <th>Foto</th>
-                                <th>Nama</th>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>No. Telepon</th>
-                                <th>Departemen</th>
-                                <th>Jabatan</th>
-                                <th>Status Kepegawaian</th>
-                                <th>Tanggal Mulai Kerja</th>
-                                {{-- <th>Lama Bekerja</th> --}}
-                                <th>Tanggal Berakhir Kerja</th>
-                                <th>Sisa Waktu Bekerja(hari)</th>
-                                <th>Aksi</th>
+                                <th>{{ __('messages.photo') }}</th>
+                                <th>{{ __('messages.name') }}</th>
+                                <th>{{ __('messages.username') }}</th>
+                                <th>{{ __('messages.email') }}</th>
+                                <th>{{ __('messages.phone') }}</th>
+                                <th>{{ __('messages.department') }}</th>
+                                <th>{{ __('messages.position') }}</th>
+                                <th>{{ __('messages.employment_status') }}</th>
+                                <th>{{ __('messages.join_date') }}</th>
+                                <th>{{ __('messages.end_work_date') }}</th>
+                                <th>{{ __('messages.remaining_time') }}</th>
+                                <th>{{ __('messages.action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -119,7 +110,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="12" class="text-center">Tidak ada data karyawan</td>
+                                    <td colspan="12" class="text-center">{{ __('messages.no_employee_data') }}</td>
                                 </tr>
                             @endforelse
                         </tbody>
@@ -212,35 +203,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', updateAll);
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const tableRows = document.querySelectorAll('table tbody tr');
-
-            searchInput.addEventListener('input', function() {
-                const keyword = this.value.toLowerCase();
-
-                tableRows.forEach(row => {
-                    const name = row.children[2]?.textContent.toLowerCase();
-                    const username = row.children[3]?.textContent.toLowerCase();
-                    const department = row.children[6]?.textContent.toLowerCase();
-                    const status = row.children[8]?.textContent.toLowerCase();
-
-                    const match = [name, username, department, status].some(field =>
-                        field.includes(keyword)
-                    );
-
-                    row.style.display = match ? '' : 'none';
-                });
-            });
-        });
-
         setInterval(updateAll, 60000);
     </script>
-
-    <style>
-        #searchInput {
-            max-width: 450px;
-        }
-    </style>
 @endpush

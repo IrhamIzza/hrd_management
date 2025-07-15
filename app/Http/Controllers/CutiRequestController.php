@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\CutiRequest;
@@ -36,7 +37,20 @@ class CutiRequestController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
             'reason' => 'required|string',
+            'bukti' => 'nullable|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048',
         ]);
+
+        // // Proses upload file
+        // if ($request->hasFile('bukti')) {
+        //     $file = $request->file('bukti');
+        //     $filename = $file->store('bukti_cuti', 'public'); // disimpan di storage/app/public/bukti_cuti
+        //     $validated['bukti'] = $filename;
+        // }
+
+        // Simpan file jika ada
+        if ($request->hasFile('bukti')) {
+            $validated['bukti'] = $request->file('bukti')->store('bukti_cuti', 'public');
+        }
 
         $cutiRequest = auth()->user()->cutiRequests()->create($validated);
 
